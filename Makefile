@@ -16,5 +16,5 @@ shell:
 	$(manage) shell
 
 shell_plus:
-	$(manage) shell_plus
+	$(manage) shell_plus --ipython
 

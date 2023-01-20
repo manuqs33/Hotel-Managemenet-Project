@@ -1,22 +1,34 @@
-from rest_framework import generics
 from rest_framework.response import Response
-from .models import Booking
-from .serializers import BookingSerializer
-from rest_framework import viewsets
-from django.shortcuts import get_object_or_404
+from rest_framework import status
+from .models import Booking, Room
+from .serializers import BookingSerializer, RoomSerializer
+from rest_framework.viewsets import ModelViewSet, GenericViewSet
+from rest_framework.permissions import DjangoObjectPermissions
 
 
+class BookingViewSet(ModelViewSet):
 
-class BookingViewSet(viewsets.ViewSet):
+    serializer_class = BookingSerializer
+    queryset = Booking.objects.all()
+    """ permission_classes = [DjangoObjectPermissions] """
+
+    """ def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save(serializer)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def list(self, request):
-        queryset = Booking.objects.all()
-        serializer = BookingSerializer(queryset, many=True)
+        serializer = self.get_serializer(self.get_queryset(), many=True)
         return Response(serializer.data)
 
-    def retrieve(self, request, pk=None):
-        queryset = Booking.objects.all()
-        booking = get_object_or_404(queryset, pk=pk)
-        serializer = BookingSerializer(booking)
-        return Response(serializer.data)
+    def retrieve(self, request, pk):
+        item = self.get_object()
+        serializer = self.get_serializer(item)
+        return Response(serializer.data) """
+
+
+class RoomViewSet(ModelViewSet):
+    serializer_class = RoomSerializer
+    queryset = Room.objects.all()
 

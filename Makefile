@@ -1,9 +1,6 @@
 compose = docker-compose
 manage = python manage.py
 
-run:
-	python3 manage.py runserver 0.0.0.0:8000
-
 start:
 	$(compose) up
 
@@ -14,7 +11,7 @@ build:
 	$(compose) build
 
 
-# Container shell --------------------------------------------------------------
+# Shell and Django commands--------------------------------------------------------------
 shell:
 	$(manage) shell
 

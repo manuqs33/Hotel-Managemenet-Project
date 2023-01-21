@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "b78332c9-0248-402d-a53c-34012c6e9845",
+		"name": "hotel_management_project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25409018"
+	},
+	"item": [
+		{
+			"name": "1 Get Booking by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/bookings/14/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"bookings",
+						"14",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2 Get all bookings",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/bookings/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"bookings",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3 Get Room by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:8000/rooms/1/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"rooms",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4 Get all Rooms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:8000/rooms/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"rooms",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5 Create new Booking",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"room\": 5,\n        \"start_date\": \"2023-05-07\",\n        \"end_date\": \"2023-05-12\",\n        \"client_name\": \"Pepe Gómez\",\n        \"client_identity_card\": 34123432,\n        \"client_email\": \"newtest@gmail.com\",\n        \"price\": 90000,\n        \"payment_method\": \"CC\",\n        \"status_code\": \"PE\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/bookings/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"bookings",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6 Update Booking",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"room\": 5,\n    \"start_date\": \"2023-04-08\",\n    \"end_date\": \"2023-04-12\",\n    \"client_name\": \"Pepe Gómez\",\n    \"client_identity_card\": 34123432,\n    \"client_email\": \"newtest@gmail.com\",\n    \"price\": 90000,\n    \"payment_method\": \"CC\",\n    \"status_code\": \"PA\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/bookings/16/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"bookings",
+						"16",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7 Create a reservation in occupied days (fails)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"room\": 5,\n    \"start_date\": \"2023-04-07\",\n    \"end_date\": \"2023-04-12\",\n    \"client_name\": \"Pepe Gómez\",\n    \"client_identity_card\": 34123432,\n    \"client_email\": \"newtest@gmail.com\",\n    \"price\": 90000,\n    \"payment_method\": \"CC\",\n    \"status_code\": \"PA\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/bookings/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"bookings",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7 Create a reservation where start_date goes after end_date (fails)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"room\": 5,\n    \"start_date\": \"2023-04-12\",\n    \"end_date\": \"2023-04-07\",\n    \"client_name\": \"Pepe Gómez\",\n    \"client_identity_card\": 34123432,\n    \"client_email\": \"newtest@gmail.com\",\n    \"price\": 90000,\n    \"payment_method\": \"CC\",\n    \"status_code\": \"PA\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/bookings/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"bookings",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

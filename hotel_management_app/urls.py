@@ -15,10 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from bookings.views import BookingViewSet
+from bookings.views import BookingViewSet, RoomViewSet
+from rest_framework import routers
+
+
+router = routers.DefaultRouter()
+router.register(r'bookings', BookingViewSet, basename='Bookings')
+router.register(r'rooms', RoomViewSet, basename='Rooms')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('bookings/', BookingViewSet.as_view({'get': 'list'})),
-    path('bookings/<int:pk>/', BookingViewSet.as_view({'get': 'retrieve'}))
+    path('', include(router.urls))
+    #path('bookings/', BookingViewSet.as_view({'get': 'list'})),
+    #path('bookings/<int:pk>/', BookingViewSet.as_view({'get': 'retrieve'})),
+    #path('bookings/create/', BookingViewSet.as_view({'post': 'create'})),
+    #path('bookings/<int:pk>/', BookingViewSet.as_view({'post': 'update'}))
 ]

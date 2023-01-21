@@ -11,10 +11,19 @@ build:
 	$(compose) build
 
 
-# Container shell --------------------------------------------------------------
+# Shell and Django commands--------------------------------------------------------------
 shell:
 	$(manage) shell
 
 shell_plus:
 	$(manage) shell_plus --ipython
+
+migrations:
+	$(manage) makemigrations
+
+migrate:
+	$(manage) migrate
+
+superuser:
+	$(manage) createsuperuser
 

@@ -5,7 +5,7 @@ class Room(models.Model):
     price_per_night = models.PositiveIntegerField()
 
     def __str__(self):
-        return "Habitación " + str(self.pk)
+        return "Room number " + str(self.pk)
 
 
 class Booking(models.Model):
@@ -37,21 +37,9 @@ class Booking(models.Model):
     status_code = models.CharField(
         max_length=255,
         choices=STATUS_OPTIONS,
-        default='Pe'
+        default='PE'
     )
 
-    class META:
-        verbose_name = "Reserva"
-
     def __str__(self):
-        return "Reserva " + str(self.pk)
+        return "Booking number " + str(self.pk)
 
-    def calculate_final_price(self):
-        base_price = self.room.price_per_night
-        number_of_days = int(self.end_date - self.start_date)
-        self.price = base_price * number_of_days
-        self.save()
-
-    """  def __init__(self, *args, **kwargs):
-        super(Booking, self).__init__(*args, **kwargs)
-        self.calculate_final_price() """

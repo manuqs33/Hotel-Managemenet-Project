@@ -36,7 +36,9 @@ This creates a new Booking
 4) PUT http://0.0.0.0:8000/bookings/id/
 This updates a Booking by id.
 
-The update can be used to update payment status. We've set three booking statuses: Payed, Pending, and Deleted. A partial_update method corresponding to PATCH could also have been set, but we avoided it for simplicity's sake. In the Front End, an autofill for the Booking fields, so the user could change only those he needs to update. Also, the price Field is meant to be calculated automatically in the Front End from the room's price and the number of days the Booking includes. In this case, an additional server-side validation could be useful to prevent attacks, but for the purposes of this demonstration it must be filled manually in the requests. Also, Bookings currently include clients' information. In a large aplication that wanted to store information about them in the database, a separate Client model could be set.
+Bookings have to be associated to an already existing Room.
+The update can be used to update payment status. We've set three booking statuses: Payed, Pending, and Deleted. A partial_update method corresponding to PATCH could also have been set, but we avoided it for simplicity's sake. In the Front End, an autofill for the Booking fields, so the user could change only those he needs to update.
+Also, the price Field is meant to be calculated automatically in the Front End from the room's price and the number of days the Booking includes. In this case, an additional server-side validation could be useful to prevent attacks, but for the purposes of this demonstration it must be filled manually in the requests. Also, Bookings currently include clients' information. In a large aplication that wanted to store information about them in the database, a separate Client model could be set.
 
 
 ## Validation and Postman

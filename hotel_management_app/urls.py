@@ -26,8 +26,4 @@ router.register(r'rooms', RoomViewSet, basename='Rooms')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls))
-    #path('bookings/', BookingViewSet.as_view({'get': 'list'})),
-    #path('bookings/<int:pk>/', BookingViewSet.as_view({'get': 'retrieve'})),
-    #path('bookings/create/', BookingViewSet.as_view({'post': 'create'})),
-    #path('bookings/<int:pk>/', BookingViewSet.as_view({'post': 'update'}))
 ]

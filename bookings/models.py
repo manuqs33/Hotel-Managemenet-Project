@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Room(models.Model):
     number_of_guests = models.PositiveIntegerField()
     price_per_night = models.PositiveIntegerField()
@@ -17,7 +18,7 @@ class Booking(models.Model):
     ]
     STATUS_OPTIONS = [
         ('PE', 'Pending'),
-        ('PA', 'Payed'),
+        ('PA', 'Paid'),
         ('DE', 'Deleted')
     ]
 
